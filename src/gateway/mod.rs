@@ -12,23 +12,58 @@ pub type MySchema = Schema<QueryRoot, MutationRoot, EmptySubscription>;
 
 pub struct MutationRoot;
 
+#[derive(SimpleObject)]
+pub struct MutationResponse<T> {
+    pub success: bool,
+    pub message: Option<String>,
+    pub data: Option<T>,
+    pub errors: Option<Vec<String>>,
+}
+
 #[Object]
 impl MutationRoot {
     // User Management Mutations
-    async fn create_user(&self, ctx: &Context<'_>, input: NewUserInput) -> Result<AuthPayload> {
+    async fn create_user(&self, ctx: &Context<'_>, input: NewUserInput) -> Result<MutationResponse<AuthPayload>> {
         // Logic to create a new user and return authentication payload
-        todo!()
+        let result = create_user_logic(input).await;
+        match result {
+            Ok(auth_payload) => Ok(MutationResponse {
+                success: true,
+                message: Some("User created successfully".to_string()),
+                data: Some(auth_payload),
+                errors: None,
+            }),
+            Err(e) => Err(InternalError::from(e)),
+        }
     }
 
-    async fn update_user(&self, ctx: &Context<'_>, id: ID, input: NewUserInput) -> Result<User> {
+    async fn update_user(&self, ctx: &Context<'_>, id: ID, input: NewUserInput) -> Result<MutationResponse<User>> {
         // Logic to update an existing user
-        todo!()
+        let result = update_user_logic(id, input).await;
+        match result {
+            Ok(user) => Ok(MutationResponse {
+                success: true,
+                message: Some("User updated successfully".to_string()),
+                data: Some(user),
+                errors: None,
+            }),
+            Err(e) => Err(InternalError::from(e)),
+        }
 
     }
 
-    async fn delete_user(&self, ctx: &Context<'_>, id: ID) -> Result<bool> {
+    async fn delete_user(&self, ctx: &Context<'_>, id: ID) -> Result<MutationResponse<bool>> {
         // Logic to delete a user
-        todo!()
+        let result = delete_user_logic(id).await;
+        match result {
+            Ok(_) => Ok(MutationResponse {
+                success: true,
+                message: Some("User deleted successfully".to_string()),
+                data: Some(true),
+                errors: None,
+            }),
+            Err(e) => Err(InternalError::from(e)),
+        }
 
     }
 
