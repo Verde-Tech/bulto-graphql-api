@@ -14,6 +14,7 @@ pub struct MutationRoot;
 
 #[Object]
 impl MutationRoot {
+    // User Management Mutations
     async fn create_user(&self, ctx: &Context<'_>, input: NewUserInput) -> Result<AuthPayload> {
         // Logic to create a new user and return authentication payload
         todo!()
@@ -41,6 +42,31 @@ impl MutationRoot {
         // Logic to refresh the authentication token
         todo!()
     }
+    // Financial Transactions Mutations
+    async fn create_transaction(&self, ctx: &Context<'_>, input: TransactionInput) -> Result<TransactionResult> {
+        // Logic to create a new transaction
+        todo!()
+    }
+
+    // Card Integration Mutations
+    async fn create_card_transaction(&self, ctx: &Context<'_>, input: CardTransactionInput) -> Result<CardTransactionResult> {
+        // Logic to create a new card transaction
+        todo!()
+    }
+
+    // Mobile Money Mutations
+    async fn create_mobile_transaction(&self, ctx: &Context<'_>, input: MobileTransactionInput) -> Result<MobileTransactionResult> {
+        // Logic to create a new mobile transaction
+        todo!()
+    }
+
+    // Lending Service Mutations
+    async fn apply_for_loan(&self, ctx: &Context<'_>, input: LoanApplicationInput) -> Result<LoanResult> {
+        // Logic to apply for a new loan
+        todo!()
+    }
+
+    // Add other service mutations here...
 }
 
 pub struct SubscriptionRoot;
@@ -48,6 +74,22 @@ pub struct SubscriptionRoot;
 #[Subscription]
 impl SubscriptionRoot {
     // Add user management mutations here
+    // User Management Subscriptions
+    // Add user management subscriptions here...
+
+    // Financial Transactions Subscriptions
+    // Add financial transactions subscriptions here...
+
+    // Card Integration Subscriptions
+    // Add card integration subscriptions here...
+
+    // Mobile Money Subscriptions
+    // Add mobile money subscriptions here...
+
+    // Lending Service Subscriptions
+    // Add lending service subscriptions here...
+
+    // Add other service subscriptions here...
 }
 
 pub struct QueryRoot;
@@ -58,6 +100,7 @@ impl QueryRoot {
         "0.1"
     }
 
+    // User Management Queries
     async fn user(&self, ctx: &Context<'_>, id: ID) -> Result<User> {
         // Logic to retrieve a user by ID
         todo!()
