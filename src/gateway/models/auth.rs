@@ -1,5 +1,7 @@
 use async_graphql::*;
 
+use super::User;
+
 #[derive(SimpleObject)]
 pub struct LoginResult {
     pub user: User,
