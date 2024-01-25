@@ -1,5 +1,32 @@
 use async_graphql::*;
 
+// GraphQL types for User Management Service
+#[derive(SimpleObject)]
+pub struct UserAccount {
+    user_id: ID,
+    username: String,
+    email: String,
+    // Add other user account fields
+}
+
+// GraphQL types for Financial Transactions Service
+#[derive(SimpleObject)]
+pub struct Transaction {
+    transaction_id: ID,
+    user_id: ID,
+    amount: f64,
+    transaction_type: String,
+    // Add other transaction fields
+}
+
+// GraphQL types for Credit Scoring Service
+#[derive(SimpleObject)]
+pub struct CreditScore {
+    user_id: ID,
+    score: i32,
+    // Add other credit score fields
+}
+
 // GraphQL types for Lending Service
 #[derive(SimpleObject)]
 pub struct LoanApplication {

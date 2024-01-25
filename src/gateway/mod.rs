@@ -3,6 +3,8 @@ use async_graphql::*;
 use actix_web::{web, HttpResponse};
 use async_graphql_actix_web::{GraphQLRequest, GraphQLResponse};
 
+use models::*;
+
 mod models;
 mod error;
 
@@ -35,51 +37,27 @@ impl Query {
     // User Management Service
     async fn user_account(&self, user_id: ID) -> Result<UserAccount> {
         // Fetch user account logic here
+        todo!()
     }
 
     // Financial Transactions Service
     async fn transaction_history(&self, user_id: ID) -> Result<Vec<Transaction>> {
         // Fetch transaction history logic here
+        todo!()
     }
 
     // Credit Scoring Service
     async fn credit_score(&self, user_id: ID) -> Result<CreditScore> {
         // Calculate credit score logic here
+        todo!()
     }
 
     // Add more methods here for each field in the Query type in the GraphQL schema.
     // Each method should return a Result and use the models to fetch the data.
 }
 
-// GraphQL types for User Management Service
-#[derive(SimpleObject)]
-pub struct UserAccount {
-    user_id: ID,
-    username: String,
-    email: String,
-    // Add other user account fields
-}
-
-// GraphQL types for Financial Transactions Service
-#[derive(SimpleObject)]
-pub struct Transaction {
-    transaction_id: ID,
-    user_id: ID,
-    amount: f64,
-    transaction_type: String,
-    // Add other transaction fields
-}
-
-// GraphQL types for Credit Scoring Service
-#[derive(SimpleObject)]
-pub struct CreditScore {
-    user_id: ID,
-    score: i32,
-    // Add other credit score fields
-}
-
 pub fn schema() -> MySchema {
-    Schema::build(Query, EmptyMutation, EmptySubscription)
+    Schema::build(Query, Mutation, Subscription)
         .finish()
 }
 
