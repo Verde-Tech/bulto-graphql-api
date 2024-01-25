@@ -1,11 +1,12 @@
 use async_graphql::*;
+use crate::models::common::{TransactionStatus, LoanStatus};
 
 #[derive(SimpleObject)]
 pub struct Loan {
     pub id: ID,
     pub user_id: ID,
     pub amount: f64,
-    pub status: String, // "applied", "approved", "disbursed", "repaid"
+    pub status: LoanStatus,
     // Additional loan fields
 }
 
