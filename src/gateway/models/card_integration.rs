@@ -5,8 +5,8 @@ pub struct CardTransaction {
     pub id: ID,
     pub user_id: ID,
     pub amount: f64,
-    pub transaction_type: String, // "charge", "refund"
-    pub status: String, // "authorized", "captured", "refunded", "failed"
+    pub transaction_type: TransactionType,
+    pub status: TransactionStatus,
     // Additional card transaction fields
 }
 
@@ -14,7 +14,7 @@ pub struct CardTransaction {
 pub struct CardTransactionInput {
     pub user_id: ID,
     pub amount: f64,
-    pub transaction_type: String,
+    pub transaction_type: TransactionType,
     // Additional input fields
 }
 

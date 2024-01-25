@@ -1,12 +1,26 @@
 use async_graphql::*;
 
+#[derive(Enum, Copy, Clone, Eq, PartialEq)]
+pub enum TransactionType {
+    Deposit,
+    Withdrawal,
+    Transfer,
+}
+
+#[derive(Enum, Copy, Clone, Eq, PartialEq)]
+pub enum TransactionStatus {
+    Pending,
+    Completed,
+    Failed,
+}
+
 #[derive(SimpleObject)]
 pub struct Transaction {
     pub id: ID,
     pub user_id: ID,
     pub amount: f64,
-    pub transaction_type: String, // "deposit", "withdrawal", "transfer"
-    pub status: String, // "pending", "completed", "failed"
+    pub transaction_type: TransactionType,
+    pub status: TransactionStatus,
     // Additional transaction fields
 }
 
@@ -14,7 +28,7 @@ pub struct Transaction {
 pub struct TransactionInput {
     pub user_id: ID,
     pub amount: f64,
-    pub transaction_type: String,
+    pub transaction_type: TransactionType,
     // Additional input fields
 }
 

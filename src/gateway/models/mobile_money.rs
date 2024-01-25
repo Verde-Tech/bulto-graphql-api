@@ -5,8 +5,8 @@ pub struct MobileTransaction {
     pub id: ID,
     pub user_id: ID,
     pub amount: f64,
-    pub transaction_type: String, // "send_money", "receive_money", "pay_bill"
-    pub status: String, // "initiated", "completed", "failed"
+    pub transaction_type: TransactionType,
+    pub status: TransactionStatus,
     // Additional mobile transaction fields
 }
 
@@ -14,7 +14,7 @@ pub struct MobileTransaction {
 pub struct MobileTransactionInput {
     pub user_id: ID,
     pub amount: f64,
-    pub transaction_type: String,
+    pub transaction_type: TransactionType,
     // Additional input fields
 }
 
