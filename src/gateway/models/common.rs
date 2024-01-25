@@ -25,5 +25,9 @@ pub enum TransactionStatus {
     Pending,
     Completed,
     Failed,
+    Authorized,                                                                                                                                                                                            
+    Captured,                                                                                                                                                                                              
+    Refunded,                                                                                                                                                                                              
+    Initiated, 
 }
 
