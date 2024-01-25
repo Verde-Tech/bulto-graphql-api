@@ -13,57 +13,32 @@ pub type MySchema = Schema<QueryRoot, MutationRoot, EmptySubscription>;
 pub struct MutationRoot;
 
 #[derive(SimpleObject)]
-pub struct MutationResponse<T> {
+pub struct MutationResponse<T: Sync + Send + async_graphql::OutputType> {
     pub success: bool,
     pub message: Option<String>,
     pub data: Option<T>,
     pub errors: Option<Vec<String>>,
 }
 
+
+// TODO: Make Mutation Response consistent with Mutation Response
 #[Object]
 impl MutationRoot {
     // User Management Mutations
     async fn create_user(&self, ctx: &Context<'_>, input: NewUserInput) -> Result<MutationResponse<AuthPayload>> {
         // Logic to create a new user and return authentication payload
-        let result = create_user_logic(input).await;
-        match result {
-            Ok(auth_payload) => Ok(MutationResponse {
-                success: true,
-                message: Some("User created successfully".to_string()),
-                data: Some(auth_payload),
-                errors: None,
-            }),
-            Err(e) => Err(InternalError::from(e)),
-        }
+        todo!()
     }
 
     async fn update_user(&self, ctx: &Context<'_>, id: ID, input: NewUserInput) -> Result<MutationResponse<User>> {
         // Logic to update an existing user
-        let result = update_user_logic(id, input).await;
-        match result {
-            Ok(user) => Ok(MutationResponse {
-                success: true,
-                message: Some("User updated successfully".to_string()),
-                data: Some(user),
-                errors: None,
-            }),
-            Err(e) => Err(InternalError::from(e)),
-        }
+        todo!()
 
     }
 
     async fn delete_user(&self, ctx: &Context<'_>, id: ID) -> Result<MutationResponse<bool>> {
         // Logic to delete a user
-        let result = delete_user_logic(id).await;
-        match result {
-            Ok(_) => Ok(MutationResponse {
-                success: true,
-                message: Some("User deleted successfully".to_string()),
-                data: Some(true),
-                errors: None,
-            }),
-            Err(e) => Err(InternalError::from(e)),
-        }
+        todo!()
 
     }
 
