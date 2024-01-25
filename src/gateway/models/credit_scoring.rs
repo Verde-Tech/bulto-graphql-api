@@ -35,24 +35,3 @@ pub struct CreditScoreInput {
     pub user_id: ID,
     // Additional input fields for credit score calculation
 }
-
-#[derive(Mutation)]
-impl MutationRoot {
-    async fn calculate_credit_score(&self, ctx: &Context<'_>, input: CreditScoreInput) -> Result<CreditScoreResult> {
-        // Logic to calculate credit score based on user data
-        todo!()
-    }
-}
-
-#[derive(Query)]
-impl QueryRoot {
-    async fn get_credit_report(&self, ctx: &Context<'_>, user_id: ID) -> Result<CreditReport> {
-        // Logic to retrieve a user's credit report
-        todo!()
-    }
-
-    async fn get_credit_score_factors(&self, ctx: &Context<'_>, user_id: ID) -> Result<CreditScoreFactors> {
-        // Logic to retrieve the factors affecting a user's credit score
-        todo!()
-    }
-}

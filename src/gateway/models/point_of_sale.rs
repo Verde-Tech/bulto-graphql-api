@@ -22,7 +22,6 @@ pub struct POSResult {
     pub inventory: Vec<InventoryItem>,
     // Additional result fields
 }
-use async_graphql::*;
 
 #[derive(SimpleObject)]
 pub struct SaleTransaction {
@@ -63,17 +62,4 @@ pub struct Receipt {
     pub items: Vec<SaleItem>,
     pub total_amount: f64,
     // Additional receipt fields
-}
-
-#[derive(Mutation)]
-impl MutationRoot {
-    async fn process_sale_transaction(&self, ctx: &Context<'_>, input: SaleTransactionInput) -> Result<SaleTransaction> {
-        // Logic to process a sale transaction
-        todo!()
-    }
-
-    async fn generate_receipt(&self, ctx: &Context<'_>, transaction_id: ID) -> Result<Receipt> {
-        // Logic to generate a receipt for a sale transaction
-        todo!()
-    }
 }

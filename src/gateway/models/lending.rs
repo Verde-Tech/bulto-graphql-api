@@ -42,32 +42,7 @@ pub struct LoanApproval {
 #[derive(InputObject)]
 pub struct LoanApprovalInput {
     pub loan_id: ID,
-    pub approved: Boolean,
+    pub approved: bool,
     // Additional input fields for loan approvals
 }
 
-#[derive(Mutation)]
-impl MutationRoot {
-    async fn apply_for_loan(&self, ctx: &Context<'_>, input: LoanApplicationInput) -> Result<LoanApplication> {
-        // Logic to apply for a loan
-        todo!()
-    }
-
-    async fn approve_loan(&self, ctx: &Context<'_>, input: LoanApprovalInput) -> Result<LoanApproval> {
-        // Logic to approve a loan application
-        todo!()
-    }
-}
-
-#[derive(Query)]
-impl QueryRoot {
-    async fn get_loan_applications(&self, ctx: &Context<'_>, user_id: ID) -> Result<Vec<LoanApplication>> {
-        // Logic to retrieve loan applications for a user
-        todo!()
-    }
-
-    async fn get_loan_approvals(&self, ctx: &Context<'_>, user_id: ID) -> Result<Vec<LoanApproval>> {
-        // Logic to retrieve loan approvals for a user
-        todo!()
-    }
-}
