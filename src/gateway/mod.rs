@@ -110,6 +110,17 @@ pub struct QueryRoot;
 
 #[Object]
 impl QueryRoot {
+    // AI Assistant Queries
+    async fn get_personalized_advice(&self, ctx: &Context<'_>, user_id: ID) -> Result<AIPersonalizedAdvice> {
+        // Logic to retrieve personalized advice for a user
+        todo!()
+    }
+
+    async fn get_financial_analytics(&self, ctx: &Context<'_>, user_id: ID) -> Result<AIAnalytics> {
+        // Logic to retrieve financial analytics for a user
+        todo!()
+    }
+
     // Add other service queries here...
     async fn api_version(&self) -> &'static str {
         "0.1"
@@ -176,3 +187,5 @@ pub async fn playground_route() -> HttpResponse {
 pub async fn graphql_route(schema: web::Data<MySchema>, req: GraphQLRequest) -> web::Json<GraphQLResponse> {
     web::Json(schema.execute(req.into_inner()).await.into())
 }
+use models::ai_assistant::{AIPersonalizedAdvice, AIAnalytics};
+

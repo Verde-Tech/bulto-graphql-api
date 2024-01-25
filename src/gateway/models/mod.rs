@@ -15,3 +15,6 @@ mod point_of_sale;
 mod credit_scoring;
 mod lending;
 mod auth;
+pub use ai_assistant::*;
+
+mod ai_assistant;
