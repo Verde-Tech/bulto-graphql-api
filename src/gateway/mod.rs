@@ -15,12 +15,26 @@ use models::user_management::{NewUserInput, AuthPayload};
 
 #[Object]
 impl MutationRoot {
+    async fn login(&self, ctx: &Context<'_>, email: String, password: String) -> Result<AuthPayload> {
+        // Logic to authenticate a user and return authentication payload
+    }
+
+    async fn refresh_token(&self, ctx: &Context<'_>, refresh_token: String) -> Result<AuthPayload> {
+        // Logic to refresh the authentication token
+    }
     
 }
 use models::user_management::{NewUserInput, AuthPayload};
 
 #[Object]
 impl MutationRoot {
+    async fn login(&self, ctx: &Context<'_>, email: String, password: String) -> Result<AuthPayload> {
+        // Logic to authenticate a user and return authentication payload
+    }
+
+    async fn refresh_token(&self, ctx: &Context<'_>, refresh_token: String) -> Result<AuthPayload> {
+        // Logic to refresh the authentication token
+    }
     // Add user management mutations here
 }
 
