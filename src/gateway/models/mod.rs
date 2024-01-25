@@ -1,4 +1,5 @@
 pub use user_management::*;
+pub use ai_assistant::*;
 pub use financial_transactions::*;
 pub use card_integration::*;
 pub use mobile_money::*;
@@ -15,6 +16,4 @@ mod point_of_sale;
 mod credit_scoring;
 mod lending;
 mod auth;
-pub use ai_assistant::*;
-
 mod ai_assistant;
