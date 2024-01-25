@@ -1,5 +1,7 @@
 use async_graphql::*;
 
+use super::*;
+
 #[derive(SimpleObject)]
 pub struct MobileTransaction {
     pub id: ID,
@@ -23,7 +25,6 @@ pub struct MobileTransactionResult {
     pub mobile_transaction: MobileTransaction,
     // Additional result fields
 }
-use async_graphql::*;
 
 #[derive(SimpleObject)]
 pub struct InternationalMoneyTransfer {

@@ -1,5 +1,5 @@
 use async_graphql::*;
-use crate::models::common::{TransactionStatus, LoanStatus};
+use super::*;
 
 #[derive(SimpleObject)]
 pub struct Loan {

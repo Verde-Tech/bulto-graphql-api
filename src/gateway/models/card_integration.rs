@@ -1,5 +1,7 @@
 use async_graphql::*;
 
+use super::*;
+
 #[derive(SimpleObject)]
 pub struct CardTransaction {
     pub id: ID,
