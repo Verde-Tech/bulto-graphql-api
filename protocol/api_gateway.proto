@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package api_gateway;
+
+// The api_gateway service definition.
+service api_gatewayService {
+  // Define RPC methods here
+  rpc SampleMethod (SampleRequest) returns (SampleResponse);
+}
+
+// The request message containing the user's name.
+message SampleRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message SampleResponse {
+  string message = 1;
+}
