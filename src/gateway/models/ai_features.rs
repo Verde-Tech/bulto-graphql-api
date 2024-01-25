@@ -11,7 +11,7 @@ pub struct FraudDetectionResult {
 pub struct CustomerServiceInteraction {
     pub interaction_id: ID,
     pub user_id: ID,
-    pub resolved: Boolean,
+    pub resolved: bool,
     // Additional customer service fields
 }
 
@@ -40,30 +40,4 @@ pub struct ExternalFinancialToolIntegrationInput {
     pub tool_name: String,
     pub data: String,
     // Additional input fields for external tool integration
-}
-
-#[derive(Mutation)]
-impl MutationRoot {
-    async fn detect_fraud(&self, ctx: &Context<'_>, input: FraudDetectionInput) -> Result<FraudDetectionResult> {
-        // Logic to detect fraud based on transaction data
-        todo!()
-    }
-
-    async fn handle_customer_service_request(&self, ctx: &Context<'_>, input: CustomerServiceInput) -> Result<CustomerServiceInteraction> {
-        // Logic to handle automated customer service interactions
-        todo!()
-    }
-
-    async fn integrate_external_financial_tool(&self, ctx: &Context<'_>, input: ExternalFinancialToolIntegrationInput) -> Result<Boolean> {
-        // Logic to integrate with an external financial tool
-        todo!()
-    }
-}
-
-#[derive(Query)]
-impl QueryRoot {
-    async fn get_business_intelligence_insights(&self, ctx: &Context<'_>) -> Result<Vec<BusinessIntelligenceInsight>> {
-        // Logic to retrieve business intelligence insights
-        todo!()
-    }
 }

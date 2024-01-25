@@ -123,6 +123,13 @@ impl MutationRoot {
         // Logic to generate financial advice based on user data
         todo!()
     }
+
+
+    async fn handle_customer_service_request(&self, ctx: &Context<'_>, input: CustomerServiceInput) -> Result<CustomerServiceInteraction> {
+        // Logic to handle automated customer service interactions
+        todo!()
+    }
+
     // Add other service mutations here...
 }
 
@@ -271,7 +278,10 @@ impl QueryRoot {
         todo!()
     }
 
-
+    async fn get_business_intelligence_insights(&self, ctx: &Context<'_>) -> Result<Vec<BusinessIntelligenceInsight>> {
+        // Logic to retrieve business intelligence insights
+        todo!()
+    }
 }
 
 

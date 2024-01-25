@@ -1,5 +1,6 @@
 pub use user_management::*;
 pub use ai_assistant::*;
+pub use ai_features::*;
 pub use financial_transactions::*;
 pub use card_integration::*;
 pub use mobile_money::*;
@@ -19,3 +20,4 @@ mod lending;
 mod common;
 mod auth;
 mod ai_assistant;
+mod ai_features;

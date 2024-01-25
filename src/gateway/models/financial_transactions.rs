@@ -1,18 +1,6 @@
 use async_graphql::*;
 
-#[derive(Enum, Copy, Clone, Eq, PartialEq)]
-pub enum TransactionType {
-    Deposit,
-    Withdrawal,
-    Transfer,
-}
-
-#[derive(Enum, Copy, Clone, Eq, PartialEq)]
-pub enum TransactionStatus {
-    Pending,
-    Completed,
-    Failed,
-}
+use super::*;
 
 #[derive(SimpleObject)]
 pub struct Transaction {
