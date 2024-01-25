@@ -12,3 +12,47 @@ pub struct CreditScoreResult {
     pub credit_score: CreditScore,
     // Additional result fields
 }
+#[derive(SimpleObject)]
+pub struct CreditReport {
+    pub user_id: ID,
+    pub credit_score: i32,
+    pub credit_limit: f64,
+    // Additional fields for credit reports
+}
+
+#[derive(SimpleObject)]
+pub struct CreditScoreFactors {
+    pub payment_history: f64,
+    pub debt_burden: f64,
+    pub length_of_credit_history: f64,
+    pub types_of_credit_used: f64,
+    pub recent_credit_inquiries: f64,
+    // Additional fields for credit score factors
+}
+
+#[derive(InputObject)]
+pub struct CreditScoreInput {
+    pub user_id: ID,
+    // Additional input fields for credit score calculation
+}
+
+#[derive(Mutation)]
+impl MutationRoot {
+    async fn calculate_credit_score(&self, ctx: &Context<'_>, input: CreditScoreInput) -> Result<CreditScoreResult> {
+        // Logic to calculate credit score based on user data
+        todo!()
+    }
+}
+
+#[derive(Query)]
+impl QueryRoot {
+    async fn get_credit_report(&self, ctx: &Context<'_>, user_id: ID) -> Result<CreditReport> {
+        // Logic to retrieve a user's credit report
+        todo!()
+    }
+
+    async fn get_credit_score_factors(&self, ctx: &Context<'_>, user_id: ID) -> Result<CreditScoreFactors> {
+        // Logic to retrieve the factors affecting a user's credit score
+        todo!()
+    }
+}
