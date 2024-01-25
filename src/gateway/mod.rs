@@ -8,7 +8,7 @@ use models::*;
 mod models;
 mod error;
 
-pub type MySchema = Schema<QueryRoot, MutationRoot, SubscriptionRoot>;
+pub type MySchema = Schema<QueryRoot, MutationRoot, EmptySubscription>;
 
 pub struct MutationRoot;
 
@@ -66,74 +66,67 @@ impl MutationRoot {
         todo!()
     }
 
-    // Add other service mutations here...
-    // Financial Transactions Mutations
-    async fn create_transaction(&self, ctx: &Context<'_>, input: TransactionInput) -> Result<TransactionResult> {
-        // Logic to create a new transaction
-        todo!()
-    }
-
-    // Card Integration Mutations
-    async fn create_card_transaction(&self, ctx: &Context<'_>, input: CardTransactionInput) -> Result<CardTransactionResult> {
-        // Logic to create a new card transaction
-        todo!()
-    }
-
-    // Mobile Money Mutations
-    async fn create_mobile_transaction(&self, ctx: &Context<'_>, input: MobileTransactionInput) -> Result<MobileTransactionResult> {
-        // Logic to create a new mobile transaction
-        todo!()
-    }
-
-    // Lending Service Mutations
-    async fn apply_for_loan(&self, ctx: &Context<'_>, input: LoanApplicationInput) -> Result<LoanResult> {
-        // Logic to apply for a new loan
-        todo!()
-    }
 
     // Add other service mutations here...
 }
 
-pub struct SubscriptionRoot;
+// pub struct SubscriptionRoot;
 
-#[Subscription]
-impl SubscriptionRoot {
-    // Add user management mutations here
-    // User Management Subscriptions
-    // Add user management subscriptions here...
+// #[Subscription]
+// impl SubscriptionRoot {
+//     // Add user management mutations here
+//     // User Management Subscriptions
+//     // Add user management subscriptions here...
 
-    // Financial Transactions Subscriptions
-    // Add financial transactions subscriptions here...
+//     // Financial Transactions Subscriptions
+//     // Add financial transactions subscriptions here...
 
-    // Card Integration Subscriptions
-    // Add card integration subscriptions here...
+//     // Card Integration Subscriptions
+//     // Add card integration subscriptions here...
 
-    // Mobile Money Subscriptions
-    // Add mobile money subscriptions here...
+//     // Mobile Money Subscriptions
+//     // Add mobile money subscriptions here...
 
-    // Lending Service Subscriptions
-    // Add lending service subscriptions here...
+//     // Lending Service Subscriptions
+//     // Add lending service subscriptions here...
 
-    // Add other service subscriptions here...
-    // Financial Transactions Subscriptions
-    // Add financial transactions subscriptions here...
+//     // Add other service subscriptions here...
+//     // Financial Transactions Subscriptions
+//     // Add financial transactions subscriptions here...
 
-    // Card Integration Subscriptions
-    // Add card integration subscriptions here...
+//     // Card Integration Subscriptions
+//     // Add card integration subscriptions here...
 
-    // Mobile Money Subscriptions
-    // Add mobile money subscriptions here...
+//     // Mobile Money Subscriptions
+//     // Add mobile money subscriptions here...
 
-    // Lending Service Subscriptions
-    // Add lending service subscriptions here...
+//     // Lending Service Subscriptions
+//     // Add lending service subscriptions here...
 
-    // Add other service subscriptions here...
-}
+//     // Add other service subscriptions here...
+// }
 
 pub struct QueryRoot;
 
 #[Object]
 impl QueryRoot {
+    // Add other service queries here...
+    async fn api_version(&self) -> &'static str {
+        "0.1"
+    }
+
+    // User Management Queries
+    async fn user(&self, ctx: &Context<'_>, id: ID) -> Result<User> {
+        // Logic to retrieve a user by ID
+        todo!()
+    }
+
+    async fn users(&self, ctx: &Context<'_>) -> Result<Vec<User>> {
+        // Logic to retrieve all users
+        todo!()
+    }
+    // Add user management queries here
+
     // Financial Transactions Queries
     async fn transaction(&self, ctx: &Context<'_>, id: ID) -> Result<Transaction> {
         // Logic to retrieve a transaction by ID
@@ -162,28 +155,12 @@ impl QueryRoot {
         // Logic to retrieve a loan by ID
         todo!()
     }
-
-    // Add other service queries here...
-    async fn api_version(&self) -> &'static str {
-        "0.1"
-    }
-
-    // User Management Queries
-    async fn user(&self, ctx: &Context<'_>, id: ID) -> Result<User> {
-        // Logic to retrieve a user by ID
-        todo!()
-    }
-
-    async fn users(&self, ctx: &Context<'_>) -> Result<Vec<User>> {
-        // Logic to retrieve all users
-        todo!()
-    }
-    // Add user management queries here
+    
 }
 
 
 pub fn schema() -> MySchema {
-    Schema::build(QueryRoot, MutationRoot, SubscriptionRoot)
+    Schema::build(QueryRoot, MutationRoot, EmptySubscription)
         .finish()
 }
 
