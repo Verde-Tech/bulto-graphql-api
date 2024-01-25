@@ -42,36 +42,44 @@ pub struct MarketingTool {
     // Additional marketing tool fields
 }
 
+/// Root for GraphQL mutations.
 #[derive(Mutation)]
 impl MutationRoot {
+    /// Creates a new customer with the given input data.
     async fn create_customer(&self, ctx: &Context<'_>, input: CustomerInput) -> Result<Customer> {
         // Logic to create a new customer
         todo!()
     }
+    /// Updates an existing customer identified by ID with the given input data.
 
     async fn update_customer(&self, ctx: &Context<'_>, id: ID, input: CustomerInput) -> Result<Customer> {
         // Logic to update an existing customer
         todo!()
     }
 
+    /// Deletes an existing customer identified by ID.
     async fn delete_customer(&self, ctx: &Context<'_>, id: ID) -> Result<Boolean> {
         // Logic to delete a customer
         todo!()
     }
 }
 
+/// Root for GraphQL queries.
 #[derive(Query)]
 impl QueryRoot {
+    /// Retrieves all customers.
     async fn get_customers(&self, ctx: &Context<'_>) -> Result<Vec<Customer>> {
         // Logic to retrieve all customers
         todo!()
     }
+    /// Retrieves a specific customer by ID.
 
     async fn get_customer(&self, ctx: &Context<'_>, id: ID) -> Result<Customer> {
         // Logic to retrieve a specific customer by ID
         todo!()
     }
 
+    /// Retrieves all marketing tools.
     async fn get_marketing_tools(&self, ctx: &Context<'_>) -> Result<Vec<MarketingTool>> {
         // Logic to retrieve all marketing tools
         todo!()
