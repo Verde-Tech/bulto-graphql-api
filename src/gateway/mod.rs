@@ -11,10 +11,17 @@ mod error;
 pub type MySchema = Schema<QueryRoot, MutationRoot, SubscriptionRoot>;
 
 pub struct MutationRoot;
+use models::user_management::{NewUserInput, AuthPayload};
 
 #[Object]
 impl MutationRoot {
     
+}
+use models::user_management::{NewUserInput, AuthPayload};
+
+#[Object]
+impl MutationRoot {
+    // Add user management mutations here
 }
 
 pub struct SubscriptionRoot;
@@ -32,6 +39,29 @@ impl QueryRoot {
         "0.1"
     }
 
+    async fn create_user(&self, ctx: &Context<'_>, input: NewUserInput) -> Result<AuthPayload> {
+        // Logic to create a new user and return authentication payload
+    }
+
+    async fn update_user(&self, ctx: &Context<'_>, id: ID, input: NewUserInput) -> Result<User> {
+        // Logic to update an existing user
+    }
+
+    async fn delete_user(&self, ctx: &Context<'_>, id: ID) -> Result<bool> {
+        // Logic to delete a user
+    }
+}
+
+#[Object]
+impl QueryRoot {
+    async fn user(&self, ctx: &Context<'_>, id: ID) -> Result<User> {
+        // Logic to retrieve a user by ID
+    }
+
+    async fn users(&self, ctx: &Context<'_>) -> Result<Vec<User>> {
+        // Logic to retrieve all users
+    }
+    // Add user management queries here
 }
 
 pub fn schema() -> MySchema {
