@@ -1,5 +1,4 @@
 use env_logger;
-use log::info;
 use actix_web::{HttpServer, App, middleware, web::{self, Data}, guard};
 use gateway::{schema, playground_route};
 
