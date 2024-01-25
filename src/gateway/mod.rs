@@ -16,6 +16,42 @@ pub struct MutationRoot;
 
 #[Object]
 impl MutationRoot {
+    // Creates a new user account
+    async fn create_user_account(&self, ctx: &Context<'_>, input: NewUserAccount) -> Result<UserAccount> {
+        // Logic to create a new user account
+        todo!()
+    }
+
+    // Updates an existing user account
+    async fn update_user_account(&self, ctx: &Context<'_>, input: UpdateUserAccount) -> Result<UserAccount> {
+        // Logic to update a user account
+        todo!()
+    }
+
+    // Deletes a user account
+    async fn delete_user_account(&self, ctx: &Context<'_>, user_id: ID) -> Result<bool> {
+        // Logic to delete a user account
+        todo!()
+    }
+
+    // Authenticates a user
+    async fn authenticate_user(&self, ctx: &Context<'_>, input: AuthenticationInput) -> Result<AuthenticationPayload> {
+        // Logic to authenticate a user
+        todo!()
+    }
+
+    // Changes a user's password
+    async fn change_user_password(&self, ctx: &Context<'_>, input: ChangePasswordInput) -> Result<bool> {
+        // Logic to change a user's password
+        todo!()
+    }
+
+    // Sets a user's permissions
+    async fn set_user_permissions(&self, ctx: &Context<'_>, input: SetPermissionsInput) -> Result<bool> {
+        // Logic to set a user's permissions
+        todo!()
+    }
+
     // Define mutation methods here
     // Example: Create a new loan application
     async fn create_loan_application(&self, ctx: &Context<'_>, application: LoanApplicationInput) -> Result<LoanApplication> {
