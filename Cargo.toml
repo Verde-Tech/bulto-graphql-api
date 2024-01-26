@@ -15,7 +15,7 @@ tonic = "0.10"
 prost = "0.12"
 prost-types = "0.12"
 tokio = { version = "1", features = ["full"] }
-credit_scoring ={ path = "../credit_scoring" } 
+credit_scoring = { git = "https://github.com/Verde-Tech/bulto-credit-scoring" } 
 
 [build-dependencies]
 tonic-build = "0.10"
