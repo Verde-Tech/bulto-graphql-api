@@ -28,7 +28,7 @@ To run the server, follow these steps:
 3. Build the project by running `cargo build`.
 4. Once the build is complete, you can start the server with `cargo run`.
 
-The server should now be running and accessible. Check the terminal output for the address and port it is listening on (usually `localhost:8080`).
+The server should now be running and accessible. Check the terminal output for the address and port it is listening on (usually `127.0.0.1:4000`).
 
 ### Additional Information
 
