@@ -1,8 +1,5 @@
 use async_graphql::*;
 
-use actix_web::{web, HttpResponse};
-use async_graphql_actix_web::{GraphQLRequest, GraphQLResponse};
-
 use super::models::*;
 
 // User Management Mutations
@@ -174,7 +171,8 @@ pub async fn stub_create_international_transfer() -> Result<InternationalMoneyTr
         receiver_user_id: ID::from("2"),
         amount: 1000.0,
         currency: "USD".to_string(),
-        status: "completed".to_string(),
+        transaction_type: TransactionType::ReceiveMoney,
+        status: TransactionStatus::Completed,
     })
 }
 
@@ -184,7 +182,8 @@ pub async fn stub_create_contractor_payment() -> Result<ContractorPayment> {
         contractor_user_id: ID::from("2"),
         amount: 2000.0,
         currency: "USD".to_string(),
-        status: "completed".to_string(),
+        transaction_type: TransactionType::ReceiveMoney,
+        status: TransactionStatus::Completed,
     })
 }
 
@@ -374,6 +373,19 @@ pub async fn stub_mobile_transaction() -> Result<MobileTransaction> {
     })
 }
 
+pub async fn stub_international_mobile_transaction() -> Result<InternationalMoneyTransfer> {
+    Ok(InternationalMoneyTransfer {
+        id: ID::from("1"),
+        sender_user_id: ID::from("1"),
+        receiver_user_id: ID::from("1"),
+        amount: 45.0,
+        currency: "USD".to_string(),
+        transaction_type: TransactionType::ReceiveMoney,
+        status: TransactionStatus::Completed,
+    })
+}
+
+
 pub async fn stub_get_international_transfers() -> Result<Vec<InternationalMoneyTransfer>> {
     Ok(vec![
         InternationalMoneyTransfer {
@@ -382,7 +394,8 @@ pub async fn stub_get_international_transfers() -> Result<Vec<InternationalMoney
             receiver_user_id: ID::from("2"),
             amount: 2000.0,
             currency: "EUR".to_string(),
-            status: "completed".to_string(),
+            transaction_type: TransactionType::ReceiveMoney,
+            status: TransactionStatus::Completed,
         },
         InternationalMoneyTransfer {
             id: ID::from("2"),
@@ -390,7 +403,8 @@ pub async fn stub_get_international_transfers() -> Result<Vec<InternationalMoney
             receiver_user_id: ID::from("3"),
             amount: 1500.0,
             currency: "GBP".to_string(),
-            status: "pending".to_string(),
+            transaction_type: TransactionType::ReceiveMoney,
+            status: TransactionStatus::Completed,
         },
     ])
 }
@@ -402,14 +416,16 @@ pub async fn stub_get_contractor_payments() -> Result<Vec<ContractorPayment>> {
             contractor_user_id: ID::from("2"),
             amount: 3000.0,
             currency: "USD".to_string(),
-            status: "completed".to_string(),
+            transaction_type: TransactionType::ReceiveMoney,
+            status: TransactionStatus::Completed,
         },
         ContractorPayment {
             id: ID::from("2"),
             contractor_user_id: ID::from("3"),
             amount: 4500.0,
             currency: "USD".to_string(),
-            status: "pending".to_string(),
+            transaction_type: TransactionType::ReceiveMoney,
+            status: TransactionStatus::Completed,
         },
     ])
 }

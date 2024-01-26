@@ -33,7 +33,8 @@ pub struct InternationalMoneyTransfer {
     pub receiver_user_id: ID,
     pub amount: f64,
     pub currency: String,
-    pub status: String, // "pending", "completed", "failed"
+    pub status: TransactionStatus, // "pending", "completed", "failed"
+    pub transaction_type: TransactionType,
     // Additional fields for international money transfers
 }
 
@@ -52,7 +53,8 @@ pub struct ContractorPayment {
     pub contractor_user_id: ID,
     pub amount: f64,
     pub currency: String,
-    pub status: String, // "pending", "completed", "failed"
+    pub transaction_type: TransactionType,
+    pub status: TransactionStatus, // "pending", "completed", "failed"
     // Additional fields for contractor payments
 }
 
