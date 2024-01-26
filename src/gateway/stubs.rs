@@ -55,55 +55,116 @@ pub async fn stub_refresh_token() -> Result<AuthPayload> {
 }
 // Financial Transactions Mutations
 pub async fn stub_create_transaction() -> Result<TransactionResult> {
-    // Logic to create a new transaction
-    Ok()
+    Ok(TransactionResult {
+        transaction: Transaction {
+            id: ID::from("1"),
+            user_id: ID::from("1"),
+            amount: 100.0,
+            transaction_type: TransactionType::Deposit,
+            status: TransactionStatus::Completed,
+        },
+    })
 }
 
 // Card Integration Mutations
 pub async fn stub_create_card_transaction() -> Result<CardTransactionResult> {
-    // Logic to create a new card transaction
-    Ok()
+    Ok(CardTransactionResult {
+        card_transaction: CardTransaction {
+            id: ID::from("1"),
+            user_id: ID::from("1"),
+            amount: 50.0,
+            transaction_type: TransactionType::Charge,
+            status: TransactionStatus::Completed,
+        },
+    })
 }
 
 pub async fn stub_add_card() -> Result<CardResult> {
-    // Logic to add a new card
-    Ok()
+    Ok(CardResult {
+        card: Card {
+            id: ID::from("1"),
+            user_id: ID::from("1"),
+            card_number: "1234567890123456".to_string(),
+            card_type: "debit".to_string(),
+            expiration_date: "2025-12".to_string(),
+        },
+    })
 }
 
 pub async fn stub_remove_card() -> Result<bool> {
-    // Logic to remove an existing card
-    Ok()
+    Ok(true)
 }
 // Mobile Money Mutations
 pub async fn stub_create_mobile_transaction() -> Result<MobileTransactionResult> {
-    // Logic to create a new mobile transaction
-    Ok()
+    Ok(MobileTransactionResult {
+        mobile_transaction: MobileTransaction {
+            id: ID::from("1"),
+            user_id: ID::from("1"),
+            amount: 25.0,
+            transaction_type: TransactionType::SendMoney,
+            status: TransactionStatus::Completed,
+        },
+    })
 }
 
 // Lending Service Mutations
 pub async fn stub_apply_for_loan() -> Result<LoanResult> {
-    // Logic to apply for a new loan
-    Ok()
+    Ok(LoanResult {
+        loan: Loan {
+            id: ID::from("1"),
+            user_id: ID::from("1"),
+            amount: 5000.0,
+            status: LoanStatus::Approved,
+        },
+    })
 }
 
 pub async fn stub_calculate_credit_score() -> Result<CreditScoreResult> {
-    // Logic to calculate credit score based on user data
-    Ok()
+    Ok(CreditScoreResult {
+        credit_score: CreditScore {
+            user_id: ID::from("1"),
+            score: 750,
+        },
+    })
 }
 
 pub async fn stub_submit_loan() -> Result<LoanApproval> {
-    // Logic to approve a loan application
-    Ok()
+    Ok(LoanApproval {
+        loan_id: ID::from("1"),
+        approved_amount: 5000.0,
+        approved_term: 24,
+        approved_interest_rate: 5.0,
+    })
 }
 
 pub async fn stub_process_sale_transaction() -> Result<SaleTransaction> {
-    // Logic to process a sale transaction
-    Ok()
+    Ok(SaleTransaction {
+        id: ID::from("1"),
+        user_id: ID::from("1"),
+        total_amount: 300.0,
+    })
 }
 
 pub async fn stub_generate_receipt() -> Result<Receipt> {
-    // Logic to generate a receipt for a sale transaction
-    Ok()
+    Ok(Receipt {
+        transaction_id: ID::from("1"),
+        issued_at: "2023-04-12T10:00:00Z".to_string(),
+        items: vec![
+            SaleItem {
+                id: ID::from("1"),
+                name: "Product 1".to_string(),
+                price: 100.0,
+                quantity: 1,
+            },
+            SaleItem {
+                id: ID::from("2"),
+                name: "Product 2".to_string(),
+                price: 200.0,
+                quantity: 1,
+            },
+        ],
+        total_amount: 300.0,
+    })
 }
 
 pub async fn stub_create_international_transfer() -> Result<InternationalMoneyTransfer> {
@@ -286,4 +347,3 @@ pub async fn stub_get_marketing_tools() -> Result<Vec<MarketingTool>> {
     // TODO: Implement get_marketing_tools logic
     Ok()
 }
-
