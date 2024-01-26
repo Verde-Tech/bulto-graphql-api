@@ -7,31 +7,51 @@ use super::models::*;
 
 // User Management Mutations
 pub async fn stub_create_user() -> Result<AuthPayload> {
-    // Logic to create a new user and return authentication payload
-    Ok()
+    Ok(AuthPayload {
+        user: User {
+            id: ID::from("1"),
+            name: "John Doe".to_string(),
+            email: "john.doe@example.com".to_string(),
+        },
+        token: "dummy_token".to_string(),
+    })
 }
 
 pub async fn stub_update_user() -> Result<User> {
-    // Logic to update an existing user
-    Ok()
+    Ok(User {
+        id: ID::from("1"),
+        name: "Jane Doe".to_string(),
+        email: "jane.doe@example.com".to_string(),
+    })
 
 }
 
 pub async fn stub_delete_user() -> Result<bool> {
-    // Logic to delete a user
-    Ok()
+    Ok(true)
 
 }
 
 pub async fn stub_login() -> Result<AuthPayload> {
-    // Logic to authenticate a user and return authentication payload
-    Ok()
+    Ok(AuthPayload {
+        user: User {
+            id: ID::from("1"),
+            name: "John Doe".to_string(),
+            email: "john.doe@example.com".to_string(),
+        },
+        token: "dummy_token".to_string(),
+    })
 
 }
 
 pub async fn stub_refresh_token() -> Result<AuthPayload> {
-    // Logic to refresh the authentication token
-    Ok()
+    Ok(AuthPayload {
+        user: User {
+            id: ID::from("1"),
+            name: "John Doe".to_string(),
+            email: "john.doe@example.com".to_string(),
+        },
+        token: "new_dummy_token".to_string(),
+    })
 }
 // Financial Transactions Mutations
 pub async fn stub_create_transaction() -> Result<TransactionResult> {
