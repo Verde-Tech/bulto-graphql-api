@@ -25,18 +25,18 @@ pub struct MutationResponse<T: Sync + Send + async_graphql::OutputType> {
 #[Object]
 impl MutationRoot {
     // User Management Mutations
-    async fn create_user(&self, ctx: &Context<'_>, input: NewUserInput) -> Result<MutationResponse<AuthPayload>> {
+    async fn create_user(&self, ctx: &Context<'_>, input: NewUserInput) -> Result<AuthPayload> {
         // Logic to create a new user and return authentication payload
         todo!()
     }
 
-    async fn update_user(&self, ctx: &Context<'_>, id: ID, input: NewUserInput) -> Result<MutationResponse<User>> {
+    async fn update_user(&self, ctx: &Context<'_>, id: ID, input: NewUserInput) -> Result<User> {
         // Logic to update an existing user
         todo!()
 
     }
 
-    async fn delete_user(&self, ctx: &Context<'_>, id: ID) -> Result<MutationResponse<bool>> {
+    async fn delete_user(&self, ctx: &Context<'_>, id: ID) -> Result<bool> {
         // Logic to delete a user
         todo!()
 
