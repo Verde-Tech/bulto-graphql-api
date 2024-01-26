@@ -354,82 +354,193 @@ pub async fn stub_get_card() -> Result<Card> {
 
 // Card Integration Queries
 pub async fn stub_card_transaction() -> Result<CardTransaction> {
-    // Logic to retrieve a card transaction by ID
-    Ok()
+    Ok(CardTransaction {
+        id: ID::from("1"),
+        user_id: ID::from("1"),
+        amount: 120.0,
+        transaction_type: TransactionType::Refund,
+        status: TransactionStatus::Completed,
+    })
 }
 
 // Mobile Money Queries
 pub async fn stub_mobile_transaction() -> Result<MobileTransaction> {
-    // Logic to retrieve a mobile transaction by ID
-    Ok()
+    Ok(MobileTransaction {
+        id: ID::from("1"),
+        user_id: ID::from("1"),
+        amount: 45.0,
+        transaction_type: TransactionType::ReceiveMoney,
+        status: TransactionStatus::Completed,
+    })
 }
 
 pub async fn stub_get_international_transfers() -> Result<Vec<InternationalMoneyTransfer>> {
-    // Logic to retrieve international money transfers for a user
-    Ok()
+    Ok(vec![
+        InternationalMoneyTransfer {
+            id: ID::from("1"),
+            sender_user_id: ID::from("1"),
+            receiver_user_id: ID::from("2"),
+            amount: 2000.0,
+            currency: "EUR".to_string(),
+            status: "completed".to_string(),
+        },
+        InternationalMoneyTransfer {
+            id: ID::from("2"),
+            sender_user_id: ID::from("1"),
+            receiver_user_id: ID::from("3"),
+            amount: 1500.0,
+            currency: "GBP".to_string(),
+            status: "pending".to_string(),
+        },
+    ])
 }
 
 pub async fn stub_get_contractor_payments() -> Result<Vec<ContractorPayment>> {
-    // Logic to retrieve contractor payments for a user
-    Ok()
+    Ok(vec![
+        ContractorPayment {
+            id: ID::from("1"),
+            contractor_user_id: ID::from("2"),
+            amount: 3000.0,
+            currency: "USD".to_string(),
+            status: "completed".to_string(),
+        },
+        ContractorPayment {
+            id: ID::from("2"),
+            contractor_user_id: ID::from("3"),
+            amount: 4500.0,
+            currency: "USD".to_string(),
+            status: "pending".to_string(),
+        },
+    ])
 }
 // Lending Service Queries
 pub async fn stub_loan() -> Result<Loan> {
-    // Logic to retrieve a loan by ID
-    Ok()
+    Ok(Loan {
+        id: ID::from("1"),
+        user_id: ID::from("1"),
+        amount: 10000.0,
+        status: LoanStatus::Disbursed,
+    })
 }
 
 pub async fn stub_get_loan_applications() -> Result<Vec<LoanApplication>> {
-    // Logic to retrieve loan applications for a user
-    Ok()
+    Ok(vec![
+        LoanApplication {
+            user_id: ID::from("1"),
+            amount: 5000.0,
+            term: 12,
+            interest_rate: 7.5,
+        },
+        LoanApplication {
+            user_id: ID::from("2"),
+            amount: 15000.0,
+            term: 24,
+            interest_rate: 6.5,
+        },
+    ])
 }
 
 pub async fn stub_get_loan_approvals() -> Result<Vec<LoanApproval>> {
-    // Logic to retrieve loan approvals for a user
-    Ok()
+    Ok(vec![
+        LoanApproval {
+            loan_id: ID::from("1"),
+            approved_amount: 5000.0,
+            approved_term: 12,
+            approved_interest_rate: 7.5,
+        },
+        LoanApproval {
+            loan_id: ID::from("2"),
+            approved_amount: 15000.0,
+            approved_term: 24,
+            approved_interest_rate: 6.5,
+        },
+    ])
 }
 
 pub async fn stub_get_credit_report() -> Result<CreditReport> {
-    // Logic to retrieve a user's credit report
-    Ok()
+    Ok(CreditReport {
+        user_id: ID::from("1"),
+        credit_score: 720,
+        credit_limit: 15000.0,
+    })
 }
 
 pub async fn stub_get_credit_score_factors() -> Result<CreditScoreFactors> {
-    // Logic to retrieve the factors affecting a user's credit score
-    Ok()
+    Ok(CreditScoreFactors {
+        payment_history: 35.0,
+        debt_burden: 30.0,
+        length_of_credit_history: 15.0,
+        types_of_credit_used: 10.0,
+        recent_credit_inquiries: 10.0,
+    })
 }
 
 pub async fn stub_get_financial_advice() -> Result<FinancialAdvice> {
-    // Logic to retrieve financial advice
-    Ok()
+    Ok(FinancialAdvice {
+        user_id: ID::from("1"),
+        advice: "It's a good time to start investing in your retirement fund.".to_string(),
+    })
 }
 
 pub async fn stub_get_predictive_analytics() -> Result<PredictiveAnalyticsResult> {
-    // Logic to retrieve financial forecasting and market trends
-    Ok()
+    Ok(PredictiveAnalyticsResult {
+        forecast: "The market is expected to grow by 4% in the next quarter.".to_string(),
+    })
 }
 
 pub async fn stub_get_business_intelligence_insights() -> Result<Vec<BusinessIntelligenceInsight>> {
-    // Logic to retrieve business intelligence insights
-    Ok()
+    Ok(vec![
+        BusinessIntelligenceInsight {
+            insight_id: ID::from("1"),
+            description: "Customer satisfaction has increased by 10% this year.".to_string(),
+        },
+        BusinessIntelligenceInsight {
+            insight_id: ID::from("2"),
+            description: "There is a growing trend in mobile payments among users aged 18-25.".to_string(),
+        },
+    ])
 }
 
 /// Retrieves all customers.
 pub async fn stub_get_customers() -> Result<Vec<Customer>> {
-    // Logic to retrieve all customers
-    Ok()
+    Ok(vec![
+        Customer {
+            id: ID::from("1"),
+            name: "Alice Smith".to_string(),
+            email: "alice.smith@example.com".to_string(),
+            phone: "123-456-7890".to_string(),
+        },
+        Customer {
+            id: ID::from("2"),
+            name: "Bob Johnson".to_string(),
+            email: "bob.johnson@example.com".to_string(),
+            phone: "098-765-4321".to_string(),
+        },
+    ])
 }
 
 /// Retrieves a specific customer by ID.
 pub async fn stub_get_customer() -> Result<Customer> {
-    // Logic to retrieve a specific customer by ID
-    // TODO: Implement get_customer logic
-    Ok()
+    Ok(Customer {
+        id: ID::from("1"),
+        name: "Alice Smith".to_string(),
+        email: "alice.smith@example.com".to_string(),
+        phone: "123-456-7890".to_string(),
+    })
 }
 
 /// Retrieves all marketing tools.
 pub async fn stub_get_marketing_tools() -> Result<Vec<MarketingTool>> {
-    // Logic to retrieve all marketing tools
-    // TODO: Implement get_marketing_tools logic
-    Ok()
+    Ok(vec![
+        MarketingTool {
+            id: ID::from("1"),
+            name: "Email Campaigns".to_string(),
+            description: "Automated email marketing campaigns.".to_string(),
+        },
+        MarketingTool {
+            id: ID::from("2"),
+            name: "Social Media Ads".to_string(),
+            description: "Targeted advertising on social media platforms.".to_string(),
+        },
+    ])
 }
