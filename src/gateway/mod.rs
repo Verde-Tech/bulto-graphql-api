@@ -6,6 +6,7 @@ use async_graphql_actix_web::{GraphQLRequest, GraphQLResponse};
 use models::*;
 
 mod models;
+mod stubs;
 mod error;
 
 pub type MySchema = Schema<QueryRoot, MutationRoot, EmptySubscription>;
