@@ -20,7 +20,6 @@ pub struct MutationResponse<T: Sync + Send + async_graphql::OutputType> {
     pub errors: Option<Vec<String>>,
 }
 
-
 // TODO: Make Mutation Response consistent with Mutation Response
 #[Object]
 impl MutationRoot {
@@ -162,42 +161,6 @@ impl MutationRoot {
     }
     // Add other service mutations here...
 }
-
-// pub struct SubscriptionRoot;
-
-// #[Subscription]
-// impl SubscriptionRoot {
-//     // Add user management mutations here
-//     // User Management Subscriptions
-//     // Add user management subscriptions here...
-
-//     // Financial Transactions Subscriptions
-//     // Add financial transactions subscriptions here...
-
-//     // Card Integration Subscriptions
-//     // Add card integration subscriptions here...
-
-//     // Mobile Money Subscriptions
-//     // Add mobile money subscriptions here...
-
-//     // Lending Service Subscriptions
-//     // Add lending service subscriptions here...
-
-//     // Add other service subscriptions here...
-//     // Financial Transactions Subscriptions
-//     // Add financial transactions subscriptions here...
-
-//     // Card Integration Subscriptions
-//     // Add card integration subscriptions here...
-
-//     // Mobile Money Subscriptions
-//     // Add mobile money subscriptions here...
-
-//     // Lending Service Subscriptions
-//     // Add lending service subscriptions here...
-
-//     // Add other service subscriptions here...
-// }
 
 pub struct QueryRoot;
 
