@@ -1,4 +1,5 @@
 use async_graphql::*;
+use credit_scoring::{calculate_comprehensive_score, stub_comprehensive_credit_score};
 
 use super::models::*;
 
@@ -476,7 +477,7 @@ pub async fn stub_get_loan_approvals() -> Result<Vec<LoanApproval>> {
 pub async fn stub_get_credit_report() -> Result<CreditReport> {
     Ok(CreditReport {
         user_id: ID::from("1"),
-        credit_score: 720,
+        credit_score: calculate_comprehensive_score(&stub_comprehensive_credit_score()) as i32,
         credit_limit: 15000.0,
     })
 }
